@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本地级联菜单</title>
+		<script src="../shuJu.16.9.7.js"></script>
+		<script type="text/javascript" src="../jquery-3.1.0.js" ></script>
+	    <script>
+	    	$(document).ready(function () {
+	    		var citys;
+	    		var countys;
+	    	    var deDao = function (arr,id) {
+	    			var arr2 =['<option value="0">','请选择','</option>']
+		    			$.each(arr,function (i,obj) {
+		    				arr2.push('<option value="',obj.value,'">',obj.text,'</option>')	    				
+		    			});
+	    			//console.log($('#'+id))
+	    			$('#'+id).html(arr2.join(''))
+	    		};	
+	    		deDao(cityData3,'province');
+	    		    			    		
+	    	    var deDaoVal = function (arr1,val) {
+	    			var arr3;
+	    			$.each(arr1,function (i,obj) {
+	    				//console.log(obj)
+	    				if (val == obj.value) {
+	    					//console.log(obj.value)
+	    					//console.log(obj.children)
+	    					arr3 = obj.children;
+	    					//console.log(arr3)
+	    					return arr3;
+	    				};
+	    			})
+	    			return arr3;
+	    		};
+	    		
+	    		
+	    		$('#province').on('change',function () {
+	    			//alert(111)
+	    			//console.log(this.value)
+	    			var val = this.value;	    			
+		    	    citys =	deDaoVal(cityData3,val);
+		    		//console.log(citys)	    		
+		    		deDao (citys,'city');			
+	    		});
+	    		
+	    		$('#city').on('change',function () {
+	    			var val = this.value;
+		    	    countys =deDaoVal(citys,val);
+		    		console.log(countys)	    		
+		    		deDao (countys,'county');   			
+	    		});		    		
+	    	});	    	
+	    </script>
+	</head>
+	<body>
+		<lable>省
+			<select id="province" name="">
+				<option value="">请选择</option>
+			</select>
+		</lable>
+		<lable>市
+			<select id="city" name="">
+				<option value="">请选择</option>
+			</select>
+		</lable>
+		<lable>县/区
+			<select id="county" name="">
+				<option value="">请选择</option>
+			</select>
+		</lable>		
+	</body>
+</html>
