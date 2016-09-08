@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/tabjq.css"/>
+		<style>		
+			.myDiv>ul>li {
+				width: 300px;
+				height: 180px;
+				background-color: blue;
+				list-style: none;
+				display: none;
+				font-family: "微软雅黑";
+				line-height: 30px;
+				text-align: center;				
+			}
+			.myDiv>ol>li {
+				width: 60px;
+				height: 30px;
+				float: left;
+				background-color: red;
+				list-style: none;
+				cursor: pointer;
+				font-family: "微软雅黑";
+				line-height: 30px;
+				text-align: center;
+				color: #FFFFFF;
+			}
+		    .myDiv .on {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="myDiv myDiv2 myDiv1" style="width: 350px;margin: 0 auto;">	
+			<ol class="myOl">
+				<li class="on">新闻</li>
+				<li>地理</li>
+				<li>政治</li>
+			</ol>				
+			<ul class="myUl">
+				<li style="display: block">1</li>
+				<li>12</li>
+				<li>123</li>
+			</ul>			
+		</div>		
+		<div class="myDiv myDiv1" style="width: 350px;margin: 0 auto;">	
+			<ol class="myOl">
+				<li class="on">新闻</li>
+				<li>地理</li>
+				<li>政治</li>
+				<li>历史</li>
+				<li>自有</li>
+			</ol>				
+			<ul class="myUl">
+				<li style="display: block">1</li>
+				<li>12</li>
+				<li>123</li>
+				<li>1234</li>
+				<li>12345</li>
+			</ul>			
+		</div>
+
+
+		<div class="myDiv huaDong" style="width: 350px;margin: 0 auto;">	
+			<ol class="myOl">
+				<li class="on">新闻</li>
+				<li>地理</li>
+				<li>政治</li>
+			</ol>				
+			<ul class="myUl">
+				<li style="display: block">1</li>
+				<li>12</li>
+				<li>123</li>
+			</ul>			
+		</div>		
+		<script src="../jquery-3.1.0.js"></script>
+		<script>
+			function tab ($canShu) {				
+                $canShu.each(function (i, obj) {
+                	console.log(this)
+				    var $obj = $(this);
+				    var $olli = $obj.find('ol>li');
+				    var $ulli = $obj.find('ul>li');
+				    var shiJian;
+				    var timer,isMouseover;
+				    if ($obj.hasClass('huaDong')) {
+				    	shiJian = 'mouseover';				    					    	
+				    	isMouseover = true;
+				    }else {
+				    	shiJian = 'click';
+				    }
+				    				    
+				   $olli.on(shiJian,function () {
+				   	    var $this = $(this);
+				   	    var index = $this.index();
+				   	    if (isMouseover) {
+					   	    timer = setTimeout( function () {
+					   	    	dingShi()
+					   	    } ,300);
+				   	    	
+					   	    	$olli.on('mouseout',function () {
+					   	    		if (timer) {
+					   	    			clearTimeout(timer);
+					   	    		};
+					   	    	});
+				   	    } else {
+					   	    	dingShi();
+				   	    };  
+				   	    function dingShi () {
+						   	$this.addClass('on').siblings().removeClass('on');	
+						   	$ulli.hide();
+						   	$ulli.eq(index).show(); 				   	    	
+				   	    };
+				   });									
+			    });
+			};
+			tab($('.myDiv'));		
+		</script>
+		
+	</body>
+</html>

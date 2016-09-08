@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.myDiv {
+	width: 400px;
+	margin: 0 auto;
+	
+}
+.myDiv .div1 {
+}
+.myDiv .div1 a {
+	display: block;
+	float: left;
+	width: 80px;
+	text-align: center;
+	text-decoration: none;
+	font-family: "微软雅黑";
+}
+.myDiv .div1:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.myDiv .div1 .div-a {
+	background-color: peru;
+}
+.myDiv .div2 div {
+	width: 400px;
+	height: 180px;
+	background-color: blue;
+	display: none;
+}
+.myDiv .div2 .div-div {
+	display: block;
+}
