@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴效果</title>
+	</head>
+	<style>
+	    * {
+	    	margin: 0;
+	    	padding: 0;
+	    }
+	    body {
+	    	background-color: #CCCCCC;
+	    }
+		.san {
+			position: relative;
+		}
+		.san .caiDan {
+			background-color: #fff;
+			width: 300px;
+			margin: 0 auto;
+		}
+		.san ul li {
+			list-style: none;
+			text-align: center;
+			font-family: "微软雅黑";
+		}
+		.san ul li:hover {
+			background-color: blue;
+			cursor: pointer;
+		}
+		.san h1 {
+			text-align: center;
+			cursor: pointer;
+			position: relative;
+			font-family: "微软雅黑";
+		}
+		.san ul {
+			display: none;
+		}
+		.red-h1 {
+			background-color: red;
+		}		
+	</style>
+	<body>
+		<div class="san">		
+		    <div class="caiDan">			
+			    <div>
+				    <h1>辽宁省</h1>
+				    <ul>
+				    	<li>沈阳市</li>
+				    	<li>大连市</li>
+				    	<li>营口市</li>
+				    	<li>鞍山市</li>
+				    </ul>
+			    </div>
+			
+			    <div>
+				    <h1>黑龙江省</h1>
+				    <ul>
+				    	<li>绥芬河市</li>
+				    	<li>哈尔滨市</li>
+				    	<li>牡丹江市</li>
+				    	<li>齐齐哈尔市</li>
+				    </ul>
+			
+			    </div>
+			
+                <div>				
+				    <h1>吉林省</h1>	
+				    <ul>
+				    	<li>长春市</li>
+				    	<li>四平市</li>
+				    	<li>公主岭市</li>
+				    	<li>铁岭市</li>
+				    </ul>				    
+                </div>			
+			
+		    </div>
+		</div>		
+		
+    <script src="../jquery-3.1.0.js"></script>
+    <script>
+		 function shouFengQin () {
+			var $caiDan = $('.caiDan'),
+			    $h1 = $caiDan.find('h1');
+			    
+			    $h1.on('click', function (){
+			    	var $this = $(this);   
+			    	    $this.toggleClass('red-h1');
+			    	    $this.parent().siblings().find('h1.red-h1').removeClass('red-h1');
+			    	    //$this.addClass('red-h1');	 
+			    	   // $this.parent().siblings().find('h1').removeClass('red-h1');	 
+			    	    //$ul = $this.siblings();//找到这个点击按钮的兄弟元素
+			    	    $ul = $this.parent().find('ul');//找到这个按钮的父元素 在找到父元素下面的ul
+			    	//console.log($ul)
+			    	//$ul.toggle();
+			    	$ul.slideToggle();
+			    	$ul.parent().siblings().find('ul').slideUp();			    	  	
+			    });			    			    			    
+		};		
+		shouFengQin();   	   	
+    </script>
+	</body>
+</html>
