@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>无缝滚动效果</title>
+	</head>
+	<style>
+		* {
+			margin:0;
+			padding: 0;
+		}
+		ul li {
+			list-style: none;
+		}		
+		#myDiv {
+			width: 900px;
+			height: 180px;
+			overflow: hidden;
+			margin:  0 auto;
+		}
+		#myDiv img {
+			width: 300px;
+			height: 180px;
+		}
+		#myDiv ul li {
+			float: left;
+			margin-right: 10px;
+		}	
+	</style>
+	<body>		
+		<div id="myDiv">
+			<ul class="myDivUl">
+				<li><a href=""><img src="img/1.jpg"/></a></li>
+				<li><a href=""><img src="img/2.jpg"/></a></li>
+				<li><a href=""><img src="img/3.jpg"/></a></li>
+				<li><a href=""><img src="img/4.jpg"/></a></li>
+				<li><a href=""><img src="img/5.jpg"/></a></li>
+			</ul>			
+		</div>	
+		<script src="js/jquery-3.1.0.js"></script>
+		<script src="js/wuFengGunDong.js"></script>
+	</body>
+</html>
