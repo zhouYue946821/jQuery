@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片滑动切换效果</title>
+	</head>
+	<style type="text/css">
+	    * {
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		#myLunBo {
+			margin: 20px auto 0;
+			width: 300px;
+			height: 180px;
+			overflow: hidden;
+			position: relative;
+		}
+		#myLunBo>ul {
+		}
+		#myLunBo>ul>li {
+			list-style: none;
+			float: left;
+			width: 300px;
+			height: 180px;
+			background: red;
+			text-align: center;
+			line-height: 180px;
+		}
+		.aLeft {
+			width: 50px;
+			height: 50px;
+			background-color: blue;
+			position: absolute;
+			top: 50%;
+			margin: -25px;
+			cursor: pointer;
+		}
+		.aRight {
+			width: 50px;
+			height: 50px;
+			right: 0;
+			background-color: blue;
+			position: absolute;
+			top: 50%;
+			margin: -25px;
+			cursor: pointer;
+		}		
+	</style>
+	<body>
+		<div id="myLunBo">
+			
+			<a class="aLeft"></a>
+			<a class="aRight"></a>
+			
+			<ul class="myLunBoUl">
+				<li>li1</li>
+				<li>li2</li>
+				<li>li3</li>
+				<li>li4</li>
+				<li>li5</li>
+			</ul>
+	   </div>
+	<script src="../jquery-3.1.0.js"></script>
+	<script type="text/javascript">
+	
+	    function huaDong () {
+	    	var $a = $('#myLunBo > a'),
+	    	    $ul = $(".myLunBoUl"),
+	    	    $li = $ul.find('li'),
+	    	    len = $li.length,
+	    	    width = $li.width(),
+	    	    ulWidth = len * width ;
+	    	    console.log($a)
+	    	    $ul.width(ulWidth);
+	    	    
+	    	$a.on('click', function () {
+	    		var $this = $(this);	    
+	    		    //console.log($this)
+					if($('ul:animated').length>0){
+						return;
+					};    		    
+		    		if ($this.hasClass('aRight')) {
+		    			$ul
+		    			.animate({marginLeft:-width},500 ,function () {
+		    				$ul
+		    				.append($ul.find('li:first'))
+		    				.css('margin-left',0)
+		    			})
+		    		}else {
+		    			$ul
+		    			.prepend($ul.find('li:last'))
+		    			.css('margin-left',-width);
+		    			$ul
+		    			.animate({marginLeft:0},500, function () {	    				
+		    			});
+		    		};	    		
+	    	});	
+	    };
+	    huaDong();	
+	</script>	   
+	</body>
+</html>
