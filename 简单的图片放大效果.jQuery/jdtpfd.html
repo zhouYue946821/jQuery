@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单图片放大效果</title>
+		<style>
+			.myDiv {
+				position: relative;
+				width: 448px;
+				height: 448px;
+				border: 2px solid #CCCCCC;
+			}
+			.myDiv .yiDong {
+				width: 200px;
+				height: 200px;
+				background-color: #000000;
+				opacity: 0.1;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.myDiv .xianShi {
+				position: absolute;
+				right: -410px;
+				top: 0;
+				width: 400px;
+				height: 400px;
+				border: 1px solid #CCCCCC; 
+				background-image: url(img/111.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="myDiv">
+			<img class="img-float" src="img/570d1616Nac390e6c.jpg"/>
+			<img class="img-wdh" style="display: none;" src="img/111.jpg" />
+			<div class="xianShi"></div>
+			<div class="yiDong"></div>
+			
+		</div>
+		<script src="../../jquery-3.1.0.js"></script>
+		<script src="js/jdtpfd.js"></script>
+	</body>
+</html>
