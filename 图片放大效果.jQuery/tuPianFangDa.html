@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片放大效果</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li {
+				list-style: none;
+			}
+			#myDiv {
+				position: relative;
+				width: 300px;
+				border: 1px solid #CCCCCC;			
+			}
+			#myDiv:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			#myDiv .div-a {
+				width: 300px;
+				height: 300px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+			}
+			#myDiv .div-a .div-span {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				opacity: 0.4;
+				display: none;
+				top: 0;
+				left: 0;
+				z-index: 10;
+			}
+			#myDiv .div-a>ul {
+				width: 1800px;
+			}
+			#myDiv .div-a>ul>li {
+				float: left;
+			}
+			#myDiv .div-a>ul>li>img {
+				width: 300px;
+			}
+			#myDiv .div-b {
+				width: 300px;
+				height: 60px;
+				float: left;
+				overflow: hidden;
+			}
+			#myDiv .div-b>ol {
+				width: 500px;
+			}
+			#myDiv .div-b>ol>li {
+				float: left;
+				border: 2px solid transparent;
+				margin-left: 15px;
+			}
+			#myDiv .div-b>ol>li.on {
+				border: 2px solid red;
+			}
+			#myDiv .xianShi {
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				top: 0;right: -310px;
+				overflow: hidden;
+				display: none;
+			}
+			#myDiv .xianShi>ul{
+				width: 1800px;
+				height: 300px;
+			}
+			#myDiv .xianShi>ul>li {
+				float: left;
+				width: 300px;
+				height: 300px;
+				background-repeat: no-repeat;
+			}
+			.icon1 {
+				background-image: url(img/a.jpg);
+			}
+			.icon2 {
+				background-image: url(img/b.jpg);
+			}
+			.icon3 {
+				background-image: url(img/c.jpg);
+			}
+			.icon4 {
+				background-image: url(img/d.jpg);
+			}
+			.icon5 {
+				background-image: url(img/e.jpg);
+			}
+			.icon6 {
+				background-image: url(img/f.jpg);
+			}															
+		</style>
+	</head>
+	<body>
+		<div id="myDiv">
+			<div class="div-a">
+				<ul class="myUl">
+					<li><img src="img/a.jpg"></li>
+					<li><img src="img/b.jpg"></li>
+					<li><img src="img/c.jpg".</li>					
+					<li><img src="img/d.jpg"></li>			
+					<li><img src="img/c.jpg"></li>
+					<li><img src="img/e.jpg"></li>	
+				</ul>
+				<div class="div-span"></div>
+			</div>
+			<div class="xianShi">
+				<ul>
+					<li class="icon1"><i></i></li>
+					<li class="icon2"></li>
+					<li class="icon3"></li>
+					<li class="icon4"></li>
+					<li class="icon5"></li>
+					<li class="icon6"></li>
+				</ul>
+			</div>
+			<div class="div-b">
+				<ol class="myOl">
+					<li class="on"><img src="img/57bd63c7N70d46167.jpg"></li>
+					<li><img src="img/57bd63c6N025f26a3.jpg"></li>
+					<li><img src="img/57bd63d9Nf98de34a.jpg"></li>
+					<li><img src="img/57bd63c6N479403f8.jpg"></li>
+					<li><img src="img/5769fd88N47884c00 (1).jpg"></li>
+					<li><img src="img/5769fd88N82d6e4ea.jpg"></li>
+				</ol>
+			</div>
+			
+			
+		</div>
+	<script src="../../jquery-3.1.0.js"></script>	
+	<script src="js/tuPianFangDa.js"></script>
+	</body>
+</html>
