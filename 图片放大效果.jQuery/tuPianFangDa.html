@@ -49,22 +49,41 @@
 				width: 300px;
 			}
 			#myDiv .div-b {
-				width: 300px;
+				width: 252px;
 				height: 60px;
 				float: left;
 				overflow: hidden;
+				position: relative;
+				left: 22px;
 			}
 			#myDiv .div-b>ol {
-				width: 500px;
+				width: 800px;
 			}
 			#myDiv .div-b>ol>li {
 				float: left;
 				border: 2px solid transparent;
-				margin-left: 15px;
+				margin-left: 5px;
 			}
 			#myDiv .div-b>ol>li.on {
 				border: 2px solid red;
 			}
+			#myDiv>a {
+				position: absolute;
+				width: 20px;
+				height: 61px;
+				background-color: #CCCCCC;
+				bottom: 0;
+			}
+			#myDiv>a.left {
+				left:0;
+				
+			}
+			#myDiv>a.right {
+				right:0;
+			}
+			#myDiv .color {
+				background-color: #000;
+			}			
 			#myDiv .xianShi {
 				width: 300px;
 				height: 300px;
@@ -111,8 +130,7 @@
 					<li><img src="img/b.jpg"></li>
 					<li><img src="img/c.jpg".</li>					
 					<li><img src="img/d.jpg"></li>			
-					<li><img src="img/c.jpg"></li>
-					<li><img src="img/e.jpg"></li>	
+					<li><img src="img/e.jpg"></li>
 				</ul>
 				<div class="div-span"></div>
 			</div>
@@ -123,7 +141,6 @@
 					<li class="icon3"></li>
 					<li class="icon4"></li>
 					<li class="icon5"></li>
-					<li class="icon6"></li>
 				</ul>
 			</div>
 			<div class="div-b">
@@ -132,11 +149,11 @@
 					<li><img src="img/57bd63c6N025f26a3.jpg"></li>
 					<li><img src="img/57bd63d9Nf98de34a.jpg"></li>
 					<li><img src="img/57bd63c6N479403f8.jpg"></li>
-					<li><img src="img/5769fd88N47884c00 (1).jpg"></li>
 					<li><img src="img/5769fd88N82d6e4ea.jpg"></li>
 				</ol>
 			</div>
-			
+				<a class="left color"></a>
+				<a class="right"></a>
 			
 		</div>
 	<script src="../../jquery-3.1.0.js"></script>	

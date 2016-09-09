@@ -12,8 +12,9 @@
 	    $olbLi = $olb.find('li'),
 	    width = $divA.width(),
 	    n = 450/width,
+	    $a = $div.find('a'),
 	    height = $divA.height();
-	    //console.log(width)
+	    console.log($a)
 	    
 	    $olbLi.on('click',function () {
 	    	var $this = $(this),
@@ -58,6 +59,7 @@
 	    $divA.on('mousemove',function (e) {
 			var x = e.clientX;
 			var y = e.clientY;
+			console.log(x)
 			if (x+50>width) {
 				x = width-50;
 			}else if (x<50) {
@@ -71,5 +73,24 @@
 			$span.css({top:y-50,left:x-50});	
 			$ulXLi
 			.css('background-position',-x*n+100 + 'px'+ ' ' + (-y*n +100) + 'px' )
-	    })
+	   });
+	   
+	   $a.on('click',function () {
+	   	var $this = $(this);
+	   	    if ($this.hasClass('color')) {
+	   	        $olb.animate({'margin-left':'-65px'},500);
+	   	        //$this.css('backgroundColor','#ccc')
+	   	        $this
+	   	        .removeClass('color')
+	   	        .siblings('a.right')
+	   	        .addClass('color');
+	   	    }else {
+	   	    	$olb.animate({'margin-left':0},500)
+	   	    	$this
+	   	        .removeClass('color')
+	   	        .siblings('a.left')
+	   	        .addClass('color');	   	    	
+	   	    }; 	   
+	   });
+	   
 }();
